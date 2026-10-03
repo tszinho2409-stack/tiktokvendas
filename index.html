@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VOLTERRA — Volantes & Guia Digital</title>
+
+<meta name="description" content="VOLTERRA — Volantes automóveis e guia digital para vendas online.">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#060606;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(6,6,6,.90);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.nav{
+    max-width:1200px;
+    height:76px;
+    margin:auto;
+    padding:0 25px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:900;
+    letter-spacing:4px;
+}
+
+.logo span{
+    color:#b8ff00;
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:#999;
+    font-size:13px;
+    transition:.2s;
+}
+
+.nav-links a:hover{
+    color:#fff;
+}
+
+.nav-btn{
+    border:1px solid rgba(184,255,0,.6);
+    color:#b8ff00;
+    padding:11px 19px;
+    border-radius:30px;
+    font-size:12px;
+    font-weight:900;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+    padding:145px 25px 90px;
+
+    display:flex;
+    align-items:center;
+
+    background:
+        radial-gradient(
+            circle at 75% 45%,
+            rgba(184,255,0,.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 15% 80%,
+            rgba(255,255,255,.04),
+            transparent 25%
+        ),
+        #060606;
+}
+
+.hero-inner{
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.tag{
+    color:#b8ff00;
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:3px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(50px,7vw,90px);
+    line-height:.91;
+    letter-spacing:-5px;
+    margin-bottom:28px;
+}
+
+.hero h1 span{
+    color:#b8ff00;
+}
+
+.hero p{
+    max-width:540px;
+    color:#999;
+    font-size:17px;
+    line-height:1.7;
+    margin-bottom:35px;
+}
+
+.buttons{
+    display:flex;
+    gap:13px;
+    flex-wrap:wrap;
+}
+
+.btn-primary{
+    display:inline-block;
+    background:#b8ff00;
+    color:#050505;
+
+    padding:16px 25px;
+    border-radius:8px;
+
+    font-size:13px;
+    font-weight:900;
+
+    transition:.25s;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 35px rgba(184,255,0,.18);
+}
+
+.btn-secondary{
+    display:inline-block;
+
+    border:1px solid #303030;
+    color:#ddd;
+
+    padding:16px 25px;
+    border-radius:8px;
+
+    font-size:13px;
+    font-weight:900;
+
+    transition:.25s;
+}
+
+.btn-secondary:hover{
+    border-color:#555;
+}
+
+/* =========================
+   HERO VOLANTE
+========================= */
+
+.wheel-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.wheel{
+    width:min(440px,78vw);
+    height:min(440px,78vw);
+
+    border-radius:50%;
+    border:31px solid #252525;
+
+    position:relative;
+
+    box-shadow:
+        0 0 0 7px #111,
+        0 0 80px rgba(184,255,0,.08),
+        inset 0 0 40px #000;
+
+    transform:rotate(-10deg);
+}
+
+.wheel:before{
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+    height:120px;
+
+    background:#151515;
+    border:11px solid #303030;
+
+    border-radius:50%;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+}
+
+.wheel:after{
+    content:"V";
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-53%);
+
+    font-size:48px;
+    font-weight:900;
+
+    color:#b8ff00;
+}
+
+.spoke{
+    position:absolute;
+
+    width:190px;
+    height:34px;
+
+    background:#292929;
+
+    left:50%;
+    top:50%;
+
+    transform-origin:left center;
+}
+
+.spoke.one{
+    transform:rotate(0deg);
+}
+
+.spoke.two{
+    transform:rotate(120deg);
+}
+
+.spoke.three{
+    transform:rotate(240deg);
+}
+
+/* =========================
+   TRUST BAR
+========================= */
+
+.trust{
+    border-top:1px solid #151515;
+    border-bottom:1px solid #151515;
+
+    background:#0b0b0b;
+}
+
+.trust-inner{
+    max-width:1200px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+}
+
+.trust-item{
+    padding:25px;
+    text-align:center;
+
+    border-right:1px solid #181818;
+}
+
+.trust-item:last-child{
+    border-right:none;
+}
+
+.trust-item strong{
+    display:block;
+    font-size:18px;
+    margin-bottom:6px;
+}
+
+.trust-item span{
+    color:#777;
+    font-size:12px;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section{
+    scroll-margin-top:90px;
+}
+
+.section{
+    max-width:1200px;
+    margin:auto;
+    padding:110px 25px;
+}
+
+.section-title{
+    margin-bottom:55px;
+}
+
+.section-title small{
+    color:#b8ff00;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:3px;
+}
+
+.section-title h2{
+    font-size:clamp(35px,5vw,58px);
+    letter-spacing:-2px;
+    margin-top:12px;
+}
+
+.section-title p{
+    color:#777;
+    max-width:600px;
+    line-height:1.7;
+    margin-top:15px;
+}
+
+/* =========================
+   CATEGORIAS
+========================= */
+
+.categories{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.category{
+    background:#0c0c0c;
+    border:1px solid #191919;
+    border-radius:18px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.category:hover{
+    transform:translateY(-5px);
+    border-color:#292929;
+}
+
+.category-image{
+    width:100%;
+    height:330px;
+    background:#111;
+    position:relative;
+    overflow:hidden;
+}
+
+.category-image img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+}
+
+.category-content{
+    padding:30px;
+}
+
+.category-label{
+    color:#b8ff00;
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:2px;
+    margin-bottom:12px;
+}
+
+.category h3{
+    font-size:30px;
+    margin-bottom:12px;
+}
+
+.category p{
+    color:#777;
+    line-height:1.7;
+    font-size:14px;
+    margin-bottom:25px;
+}
+
+.price{
+    display:flex;
+    align-items:end;
+    gap:8px;
+    margin-bottom:22px;
+}
+
+.price strong{
+    font-size:30px;
+}
+
+.price span{
+    color:#777;
+    font-size:12px;
+    margin-bottom:5px;
+}
+
+/* =========================
+   PRODUTO VOLANTE
+========================= */
+
+.product-section{
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(184,255,0,.06),
+            transparent 35%
+        );
+}
+
+.product-box{
+    max-width:1000px;
+    margin:auto;
+
+    background:#0b0b0b;
+    border:1px solid #1b1b1b;
+    border-radius:22px;
+
+    padding:40px;
+}
+
+.product-top{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:45px;
+    align-items:center;
+}
+
+.product-image{
+    height:450px;
+    border-radius:16px;
+    overflow:hidden;
+    background:#111;
+    border:1px solid #1c1c1c;
+}
+
+.product-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.product-info h2{
+    font-size:42px;
+    letter-spacing:-2px;
+    margin-bottom:15px;
+}
+
+.product-description{
+    color:#777;
+    line-height:1.7;
+    margin-bottom:25px;
+}
+
+.product-price{
+    margin-bottom:25px;
+}
+
+.product-price strong{
+    font-size:38px;
+}
+
+.product-price span{
+    color:#777;
+    font-size:13px;
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+.form-group label{
+    display:block;
+    color:#aaa;
+    font-size:12px;
+    margin-bottom:8px;
+}
+
+select{
+    width:100%;
+    padding:14px;
+
+    background:#121212;
+    color:#fff;
+
+    border:1px solid #292929;
+    border-radius:7px;
+
+    outline:none;
+}
+
+select:focus{
+    border-color:#b8ff00;
+}
+
+.buy-btn{
+    width:100%;
+
+    border:none;
+    cursor:pointer;
+
+    background:#b8ff00;
+    color:#050505;
+
+    padding:17px;
+
+    border-radius:8px;
+
+    font-size:13px;
+    font-weight:900;
+
+    transition:.25s;
+}
+
+.buy-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 15px 35px rgba(184,255,0,.15);
+}
+
+/* =========================
+   BENEFÍCIOS
+========================= */
+
+.benefits{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.benefit{
+    padding:30px;
+
+    background:#0c0c0c;
+    border:1px solid #191919;
+    border-radius:15px;
+}
+
+.benefit-number{
+    color:#b8ff00;
+    font-size:12px;
+    font-weight:900;
+    margin-bottom:25px;
+}
+
+.benefit h3{
+    font-size:21px;
+    margin-bottom:12px;
+}
+
+.benefit p{
+    color:#777;
+    line-height:1.7;
+    font-size:14px;
+}
+
+/* =========================
+   COMO FUNCIONA
+========================= */
+
+.steps{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.step{
+    border-top:1px solid #292929;
+    padding-top:25px;
+}
+
+.step-number{
+    color:#b8ff00;
+    font-size:12px;
+    font-weight:900;
+    margin-bottom:18px;
+}
+
+.step h3{
+    font-size:24px;
+    margin-bottom:12px;
+}
+
+.step p{
+    color:#777;
+    line-height:1.7;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+    max-width:1200px;
+    margin:0 auto 100px;
+
+    padding:70px 30px;
+
+    text-align:center;
+
+    border:1px solid #202020;
+    border-radius:20px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(184,255,0,.08),
+            transparent 60%
+        ),
+        #0a0a0a;
+}
+
+.cta h2{
+    font-size:clamp(35px,5vw,60px);
+    letter-spacing:-3px;
+    margin-bottom:15px;
+}
+
+.cta p{
+    color:#777;
+    max-width:550px;
+    margin:0 auto 30px;
+    line-height:1.7;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    border-top:1px solid #151515;
+    padding:35px 25px;
+    background:#050505;
+}
+
+.footer-inner{
+    max-width:1200px;
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.footer-logo{
+    font-weight:900;
+    letter-spacing:4px;
+}
+
+.footer-logo span{
+    color:#b8ff00;
+}
+
+.footer-text{
+    color:#555;
+    font-size:12px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:850px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero-inner{
+        grid-template-columns:1fr;
+        gap:55px;
+        text-align:center;
+    }
+
+    .hero p{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .buttons{
+        justify-content:center;
+    }
+
+    .wheel{
+        width:330px;
+        height:330px;
+        border-width:24px;
+    }
+
+    .trust-inner{
+        grid-template-columns:1fr;
+    }
+
+    .trust-item{
+        border-right:none;
+        border-bottom:1px solid #181818;
+    }
+
+    .trust-item:last-child{
+        border-bottom:none;
+    }
+
+    .categories{
+        grid-template-columns:1fr;
+    }
+
+    .product-top{
+        grid-template-columns:1fr;
+    }
+
+    .benefits,
+    .steps{
+        grid-template-columns:1fr;
+    }
+
+    .product-image{
+        height:350px;
+    }
+}
+
+@media(max-width:500px){
+
+    .nav{
+        padding:0 17px;
+    }
+
+    .nav-btn{
+        display:none;
+    }
+
+    .hero{
+        padding-left:18px;
+        padding-right:18px;
+    }
+
+    .hero h1{
+        font-size:50px;
+        letter-spacing:-3px;
+    }
+
+    .section{
+        padding:80px 18px;
+    }
+
+    .category-content{
+        padding:24px;
+    }
+
+    .category-image{
+        height:260px;
+    }
+
+    .product-box{
+        padding:20px;
+    }
+
+    .product-image{
+        height:280px;
+    }
+
+    .product-info h2{
+        font-size:34px;
+    }
+
+    .cta{
+        margin-left:18px;
+        margin-right:18px;
+        margin-bottom:70px;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+        gap:15px;
+        text-align:center;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <nav class="nav">
+
+        <a href="#" class="logo">
+            VOLTERRA<span>.</span>
+        </a>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#produtos">Produtos</a>
+            </li>
+
+            <li>
+                <a href="#volantes">Volantes</a>
+            </li>
+
+            <li>
+                <a href="#vantagens">Vantagens</a>
+            </li>
+
+            <li>
+                <a href="#como-funciona">Como funciona</a>
+            </li>
+
+        </ul>
+
+        <a href="#produtos" class="nav-btn">
+            COMPRAR
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-inner">
+
+        <div>
+
+            <div class="tag">
+                VOLTERRA · AUTOMOTIVE
+            </div>
+
+            <h1>
+                MUDA O<br>
+                <span>VOLANTE.</span><br>
+                MUDA O CARRO.
+            </h1>
+
+            <p>
+                Produtos selecionados para quem quer melhorar
+                a experiência dentro do carro. Compra simples,
+                preços diretos e checkout online.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#produtos" class="btn-primary">
+                    VER PRODUTOS
+                </a>
+
+                <a href="#como-funciona" class="btn-secondary">
+                    COMO FUNCIONA
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="wheel-container">
+
+            <div class="wheel">
+
+                <div class="spoke one"></div>
+                <div class="spoke two"></div>
+                <div class="spoke three"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     TRUST
+========================= -->
+
+<div class="trust">
+
+    <div class="trust-inner">
+
+        <div class="trust-item">
+
+            <strong>7,90 €</strong>
+
+            <span>
+                Guia digital
+            </span>
+
+        </div>
+
+        <div class="trust-item">
+
+            <strong>50 €</strong>
+
+            <span>
+                Volantes automóveis
+            </span>
+
+        </div>
+
+        <div class="trust-item">
+
+            <strong>CHECKOUT SEGURO</strong>
+
+            <span>
+                Compra online
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     PRODUTOS
+========================= -->
+
+<section class="section" id="produtos">
+
+    <div class="section-title">
+
+        <small>
+            ESCOLHE O TEU PRODUTO
+        </small>
+
+        <h2>
+            PRODUTOS
+        </h2>
+
+        <p>
+            Escolhe entre o nosso guia digital ou
+            um volante automóvel.
+        </p>
+
+    </div>
+
+
+    <div class="categories">
+
+
+        <!-- GUIA DIGITAL -->
+
+        <div class="category">
+
+            <div class="category-image">
+
+                <img
+                    src="volterravolante.jpg.PNG"
+                    alt="Guia digital VOLTERRA"
+                >
+
+            </div>
+
+            <div class="category-content">
+
+                <div class="category-label">
+                    VOLTERRA · GUIA DIGITAL
+                </div>
+
+                <h3>
+                    Guia de Vendas
+                </h3>
+
+                <p>
+                    Um guia digital com explicações sobre
+                    vendas online, boas práticas, regras
+                    das plataformas e formas de reduzir
+                    problemas com anúncios.
+                </p>
+
+                <div class="price">
+
+                    <strong>
+                        7,90 €
+                    </strong>
+
+                    <span>
+                        pagamento único
+                    </span>
+
+                </div>
+
+                <a
+                    href="https://payhip.com/b/9s5yg"
+                    target="_blank"
+                    class="btn-primary"
+                >
+                    COMPRAR GUIA
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- VOLANTES -->
+
+        <div class="category">
+
+            <div class="category-image">
+
+                <img
+                    src="volantes.jpg.JPG.jpg"
+                    alt="Volantes automóveis VOLTERRA"
+                >
+
+            </div>
+
+            <div class="category-content">
+
+                <div class="category-label">
+                    VOLTERRA · AUTOMÓVEL
+                </div>
+
+                <h3>
+                    Volante Automóvel
+                </h3>
+
+                <p>
+                    Escolhe o teu volante e indica a marca
+                    e o tipo que procuras. Faz a compra
+                    online de forma simples.
+                </p>
+
+                <div class="price">
+
+                    <strong>
+                        50,00 €
+                    </strong>
+
+                    <span>
+                        + envio
+                    </span>
+
+                </div>
+
+                <a
+                    href="#volantes"
+                    class="btn-primary"
+                >
+                    VER VOLANTES
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     VOLANTES
+========================= -->
+
+<section class="section product-section" id="volantes">
+
+    <div class="section-title">
+
+        <small>
+            VOLTERRA · AUTOMÓVEL
+        </small>
+
+        <h2>
+            VOLANTES
+        </h2>
+
+        <p>
+            Escolhe as características do volante
+            que procuras antes de avançar para o pagamento.
+        </p>
+
+    </div>
+
+
+    <div class="product-box">
+
+        <div class="product-top">
+
+
+            <div class="product-image">
+
+                <img
+                    src="volantes.jpg.JPG.jpg"
+                    alt="Volantes automóveis VOLTERRA"
+                >
+
+            </div>
+
+
+            <div class="product-info">
+
+                <h2>
+                    Volante Automóvel
+                </h2>
+
+                <p class="product-description">
+                    Volantes para vários tipos de veículos.
+                    Seleciona a marca e o tipo pretendido.
+                </p>
+
+                <div class="product-price">
+
+                    <strong>
+                        50,00 €
+                    </strong>
+
+                    <span>
+                        + envio
+                    </span>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="marca">
+                        MARCA
+                    </label>
+
+                    <select id="marca">
+
+                        <option value="">
+                            Seleciona a marca
+                        </option>
+
+                        <option>BMW</option>
+                        <option>Mercedes</option>
+                        <option>Audi</option>
+                        <option>Volkswagen</option>
+                        <option>Porsche</option>
+                        <option>Seat</option>
+                        <option>Peugeot</option>
+                        <option>Renault</option>
+                        <option>Outro</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="modelo">
+                        TIPO / OBSERVAÇÃO
+                    </label>
+
+                    <select id="modelo">
+
+                        <option value="">
+                            Seleciona uma opção
+                        </option>
+
+                        <option>Desportivo</option>
+                        <option>Multifunções</option>
+                        <option>Original</option>
+                        <option>Outro</option>
+
+                    </select>
+
+                </div>
+
+
+                <button
+                    class="buy-btn"
+                    onclick="comprar()"
+                >
+                    COMPRAR POR 50 €
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     VANTAGENS
+========================= -->
+
+<section class="section" id="vantagens">
+
+    <div class="section-title">
+
+        <small>
+            PORQUÊ VOLTERRA
+        </small>
+
+        <h2>
+            SIMPLES.
+            DIRETO.
+            PREMIUM.
+        </h2>
+
+    </div>
+
+
+    <div class="benefits">
+
+        <div class="benefit">
+
+            <div class="benefit-number">
+                01
+            </div>
+
+            <h3>
+                Preços simples
+            </h3>
+
+            <p>
+                Sem complicações. Cada produto
+                apresenta o preço de forma clara.
+            </p>
+
+        </div>
+
+
+        <div class="benefit">
+
+            <div class="benefit-number">
+                02
+            </div>
+
+            <h3>
+                Compra online
+            </h3>
+
+            <p>
+                Faz o processo de compra através
+                do checkout online.
+            </p>
+
+        </div>
+
+
+        <div class="benefit">
+
+            <div class="benefit-number">
+                03
+            </div>
+
+            <h3>
+                Experiência simples
+            </h3>
+
+            <p>
+                Escolhe o produto, avança para o
+                pagamento e recebe as instruções.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     COMO FUNCIONA
+========================= -->
+
+<section class="section" id="como-funciona">
+
+    <div class="section-title">
+
+        <small>
+            PROCESSO
+        </small>
+
+        <h2>
+            COMO FUNCIONA
+        </h2>
+
+    </div>
+
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="step-number">
+                01 · ESCOLHE
+            </div>
+
+            <h3>
+                Escolhe o produto
+            </h3>
+
+            <p>
+                Seleciona o guia digital ou o
+                volante que procuras.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                02 · COMPRA
+            </div>
+
+            <h3>
+                Faz o pagamento
+            </h3>
+
+            <p>
+                Segue para o checkout e conclui
+                a compra online.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                03 · RECEBE
+            </div>
+
+            <h3>
+                Recebe o produto
+            </h3>
+
+            <p>
+                Depois da compra, segue as
+                instruções apresentadas.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<div class="cta">
+
+    <h2>
+        PRONTO PARA<br>
+        MUDAR O VISUAL?
+    </h2>
+
+    <p>
+        Escolhe o teu produto VOLTERRA e
+        começa agora.
+    </p>
+
+    <a
+        href="#produtos"
+        class="btn-primary"
+    >
+        VER PRODUTOS
+    </a>
+
+</div>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-inner">
+
+        <div class="footer-logo">
+            VOLTERRA<span>.</span>
+        </div>
+
+        <div class="footer-text">
+            © 2026 VOLTERRA · Pagamento seguro
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+function comprar(){
+
+    const marca = document.getElementById("marca").value;
+    const modelo = document.getElementById("modelo").value;
+
+    localStorage.setItem(
+        "volterra_marca",
+        marca
+    );
+
+    localStorage.setItem(
+        "volterra_modelo",
+        modelo
+    );
+
+    window.location.href =
+        "https://payhip.com/b/MVIhc";
+}
+
+</script>
+
+</body>
+</html>
